@@ -42,6 +42,21 @@ class Board:
             Position(1, 7): Piece('black', 'pawn'),
         }
 
+    def grab_piece(self, position):
+        """Grab the piece from the requested position
+
+        Args:
+            position (Position): Position of the piece
+
+        Returns:
+            The current selected piece, or None if no piece at that position.
+
+        """
+        if position not in self.spaces:
+            return None
+
+        return self.spaces[position]
+
     def __repr__(self):
         """ Showcase the entire boardgame grid """
 
@@ -72,6 +87,8 @@ class Board:
 if __name__ == '__main__':
     new_board = Board(8, 8)
     print(new_board.__repr__())
+    #print(new_board.grab_piece(Position(0,4)))
+
 
 
 
